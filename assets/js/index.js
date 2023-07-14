@@ -1,10 +1,30 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://realtime-database-b8787-default-rtdb.firebaseio.com/"
 }
 
-const app = initializeApp(appSettings)
-const database = getDatabase(app)
-const shoppingListInDB = ref(database, "shoppingList")
+const app = initializeApp(appSettings);
+const database = getDatabase(app);
+const shoppingListInDB = ref(database, "shoppingList");
+
+const inputFieldEl = document.getElementById('input-field');
+const addButtonEl = document.getElementById('add-button');
+const shoppingListEl = document.getElementById('shopping-list');
+
+addButtonEl.addEventListener('click', () => {
+    const inputValue = inputFieldEl.value
+    clearShoppingListEl
+    clearInputFieldEl
+    addItemToShoppingListEl(inputValue)
+    push(shoppingListInDB, inputValue);
+});
+
+const clearShoppingListEl = () => shoppingListEl.innerHTML = ""
+
+const clearInputFieldEl = () => inputFieldEl.value = ""
+
+const addItemToShoppingListEl = (itemValue) => { 
+    shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+}
