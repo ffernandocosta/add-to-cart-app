@@ -24,7 +24,7 @@ onValue(shoppingListInDB, (snapshot) => {
     if (snapshot.exists()) {
         let itemsArray = Object.entries(snapshot.val());
 
-        clearShoppingListEl
+        clearShoppingListEl();
         
         for (let i = 0; i < itemsArray.length; i++) {
             let currentItem = itemsArray[i];
@@ -50,11 +50,10 @@ const appendItemToShoppingListEl = (item) => {
 
     newEl.textContent = itemValue;
 
-    shoppingListEl.append(newEl);
-
     newEl.addEventListener('click', () => {
         let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
-
-        remove(exactLocationOfItemInDB);
+        remove(exactLocationOfItemInDB)
     })
+
+    shoppingListEl.append(newEl);
 }
