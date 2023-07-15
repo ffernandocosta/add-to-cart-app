@@ -10,14 +10,22 @@ const database = getDatabase(app);
 const shoppingListInDB = ref(database, "shoppingList");
 
 const inputFieldEl = document.getElementById('input-field');
+const inputErrorMessageEl = document.getElementById('input--empty-error-message');
 const addButtonEl = document.getElementById('add-button');
 const shoppingListEl = document.getElementById('shopping-list');
 
 addButtonEl.addEventListener('click', () => {
     const inputValue = inputFieldEl.value
-    clearInputFieldEl();
-    clearShoppingListEl();
-    push(shoppingListInDB, inputValue);
+
+    if (inputValue) {
+        clearInputFieldEl();
+        clearShoppingListEl();
+        push(shoppingListInDB, inputValue);
+        inputErrorMessageEl.textContent = ""
+    }
+    else {
+        inputErrorMessageEl.textContent = "Your item cannot be empty!"
+    }
 });
 
 onValue(shoppingListInDB, (snapshot) => {
@@ -53,6 +61,7 @@ const appendItemToShoppingListEl = (item) => {
     newEl.addEventListener('click', () => {
         let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
         remove(exactLocationOfItemInDB)
+        inputErrorMessageEl.textContent = ""
     })
 
     shoppingListEl.append(newEl);
