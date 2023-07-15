@@ -15,7 +15,8 @@ const shoppingListEl = document.getElementById('shopping-list');
 
 addButtonEl.addEventListener('click', () => {
     const inputValue = inputFieldEl.value
-    clearInputFieldEl
+    clearInputFieldEl();
+    clearShoppingListEl();
     push(shoppingListInDB, inputValue);
 });
 
