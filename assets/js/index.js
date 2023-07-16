@@ -13,6 +13,7 @@ const inputFieldEl = document.getElementById('input-field');
 const inputErrorMessageEl = document.getElementById('input--empty-error-message');
 const addButtonEl = document.getElementById('add-button');
 const shoppingListEl = document.getElementById('shopping-list');
+const darkModeToggleEl = document.getElementById('toggle');
 
 addButtonEl.addEventListener('click', () => {
     const inputValue = inputFieldEl.value
@@ -66,3 +67,8 @@ const appendItemToShoppingListEl = (item) => {
 
     shoppingListEl.append(newEl);
 }
+
+darkModeToggleEl.addEventListener('change', (e) => {
+    e.preventDefault();
+    document.body.classList.toggle('darkmode')
+});
