@@ -1,4 +1,4 @@
-# Role Playing Game
+# Add to Cart
 _[Read it in English](#English)_
 
 Add to Cart app que desenvolvi durante o módulo 3 de JavaScript do [Scrimba](scrimba.com) usando Firebase. Aprendi bastante sobre como usar Firebase e Real-time Database para armazenar e e sincronizar dados em tempo real em vários clientes.
@@ -28,7 +28,7 @@ Os usuários devem ser capazes de:
 
 ### Screenshot
 
-![Screenshot](/images/screenshot.png)
+![Screenshot](/assets/screenshot.png)
 
 ### Links
 
@@ -92,7 +92,7 @@ _English version_
 
 </div>
 
-# Role Playing Game
+# Add to Cart
 
 Add to Cart project I built during module 3 of [Scrimba's](scrimba.com) JavaScript course using Firebase. Got to learn and practice hot to use Firebase as a Back-end Real-time Databse to store and sync data in real-time across multiple clients.
 ## Table of contents
