@@ -161,3 +161,14 @@ ul li:hover {
 		}
 	}
 }
+
+.footer {
+    text-align: center;
+    font-size: 11px; text-align: center; margin-top: 4rem;
+    color: var(--text)
+}
+
+.footer a {
+    font-weight: bold;
+    text-decoration: none;
+}
